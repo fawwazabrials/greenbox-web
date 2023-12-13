@@ -36,15 +36,15 @@
                                 </div>
                                 <div>
                                     <h4 class="font-semibold mt-4">Deskripsi</h4>
-                                    <p><?= esc($product['description']) ?></p>
+                                    <p><?= str_replace('\n', '<br/>', esc($product['description'])) ?></p>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold mt-4">Kandungan dan Nutrisi</h4>
-                                    <p><?= esc($product['description_kandungan']) ?></p>
+                                    <p><?= str_replace('\n', '<br/>', esc($product['description_kandungan']))  ?></p>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold mt-4">Petunjuk Penyimpanan</h4>
-                                    <p><?= esc($product['description_petunjuk_penyimpanan']) ?></p>
+                                    <p><?= str_replace('\n', '<br/>', esc($product['description_petunjuk_penyimpanan'])) ?></p>
                                 </div>
                             </div>
                             <form method="dialog" class="modal-backdrop">
