@@ -6,7 +6,14 @@
     <link href="<?= base_url()?>/assets/css/styles.css" rel="stylesheet">
     <title>GreenBox</title>
 </head>
-<body>
-    <?= $this->renderSection('content') ?>
+<body class="flex flex-col min-h-screen">
+    <!-- NAVBAR -->
+    <nav class="navbar bg-base-100 pl-[12px] lg:pl-[176px] pr-8 lg:pr-48">
+        <a class="btn btn-ghost text-xl text-green-500">GreenBox</a>
+    </nav>
+
+    <div class="px-8 lg:px-48 my-4">
+        <?= $this->renderSection('content') ?>
+    </div>
 </body>
 </html>
