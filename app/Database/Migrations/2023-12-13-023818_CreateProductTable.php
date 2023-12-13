@@ -18,6 +18,10 @@ class CreateProductTable extends Migration
             'name' => [
                 'type' => 'TEXT',
             ],
+            'variant' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
+            ],
             'price' => [
                 'type' => 'INT',
             ],
