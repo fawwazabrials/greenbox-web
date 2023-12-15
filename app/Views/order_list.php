@@ -15,7 +15,7 @@
                             </div>
                         </div>
 
-                        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"><?= $value->deliveryStatus ?></a>
+                        <!-- <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"><?= $value->deliveryStatus ?></a> -->
                     </div>
 
                     <p class="text-sm text-slate-400"><?= $value->orderDate ?></p>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
 
-                        <a class="btn btn-primary btn-sm border-0 mt-6 px-8" href="/order/<?= $value->id ?>">Details</a>
+                        <a class="btn btn-primary btn-sm border-0 mt-6 px-8" href="/admin/order/<?= $value->id ?>">Details</a>
                     </div>
                 </div>
             </div>
