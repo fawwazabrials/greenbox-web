@@ -22,16 +22,10 @@ class ProductController extends BaseController
     {
         $model = model(Product::class);
         $product = $model->getProductById($id);
-        $form_value = [
-            'customerName' => '',
-            'deliveryAddress' => '',
-            'totalAmount' => '',
-        ];
 
         if (! $this->request->is('post')) {
             return view('product_item', [
-                'product' => $product,
-                'form_value' => $form_value,
+                'product' => $product
             ]);
         }
 
@@ -55,15 +49,8 @@ class ProductController extends BaseController
         ];
  
         if (! $this->validate($rules, $errors)) {
-            $form_value = [
-                'customerName' => $this->request->getPost('customerName'),
-                'deliveryAddress' => $this->request->getPost('deliveryAddress'),
-                'totalAmount' => $this->request->getPost('totalAmount'),
-            ];
-
             return view('product_item', [
                 'product' => $product,
-                'form_value' => $form_value,
             ]);
         }
         

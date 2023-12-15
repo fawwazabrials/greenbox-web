@@ -35,13 +35,13 @@
                             <span class="label-text font-semibold">Namamu</span>
                             <span class="label-text text-red-500 text-sm"> <?= validation_show_error('customerName') ?> </span>
                         </div>
-                        <input id="customerName" name="customerName" type="text" placeholder="Isi nama" class="input input-bordered w-full" />
+                        <input id="customerName" name="customerName" type="text" value="<?= set_value('customerName') ?>" placeholder="Isi nama" class="input input-bordered w-full" />
 
                         <div class="flex flex-col mt-2">
                             <span class="label-text font-semibold">Alamatmu</span>
                             <span class="label-text text-red-500 text-sm"> <?= validation_show_error('deliveryAddress') ?> </span>
                         </div>
-                        <textarea id="deliveryAddress" name="deliveryAddress" class="textarea textarea-bordered h-24" placeholder="Isi alamat pengiriman"></textarea>
+                        <textarea id="deliveryAddress" name="deliveryAddress" value="<?= set_value('deliveryAddress') ?>" class="textarea textarea-bordered h-24" placeholder="Isi alamat pengiriman"></textarea>
                     </label>
 
                     <div class="divider"></div> 
@@ -52,7 +52,7 @@
                             <span class="label-text font-semibold">Kuantitas</span>
                             <span class="label-text text-red-500 text-sm"> <?= validation_show_error('totalAmount') ?> </span>
                         </div>
-                        <input id="totalAmount" name="totalAmount" type="number" placeholder="0" class="input input-bordered w-full" />
+                        <input id="totalAmount" name="totalAmount" type="number" value="<?= set_value('totalAmount') ?>" placeholder="0" class="input input-bordered w-full" />
                         <div>
                             <span class="label-text-alt"></span>
                             <span class="label-text-alt">Stok: <?= esc($product['stock']) ?></span>
