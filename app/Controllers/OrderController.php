@@ -20,4 +20,11 @@ class OrderController extends BaseController
 
         return view('order_list', $data);
     }
+
+    public function show(int $id = null)
+    {
+        $data['orders'] = $this->order->getOrderById($id);
+
+        return view('order_item', $data);
+    }
 }

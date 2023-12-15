@@ -38,4 +38,14 @@ class Order extends Model
         $query = $builder->get();
         return $query->getResult();
     }
+
+    public function getOrderById(int $id)
+    {
+        $builder = $this->db->table('order');
+        $builder->select('order.id AS order_id, order.productId, order.customerName, order.orderDate, order.deliveryAddress, order.totalAmount, order.deliveryStatus, product.*');
+        $builder->join('product', 'order.productId = product.id');
+        $builder->where('order.id', $id);
+        $query = $builder->get();
+        return $query->getResult();
+    }
 }

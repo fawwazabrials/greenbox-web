@@ -35,6 +35,8 @@
                                 <p><?= "Rp" . number_format((($value->totalAmount) * ($value->price)), 0, ',', '.') ?></p>
                             </div>
                         </div>
+
+                        <a class="btn btn-primary btn-sm border-0 mt-6 px-8" href="/order/<?= $value->id ?>">Details</a>
                     </div>
                 </div>
             </div>
