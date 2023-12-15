@@ -18,3 +18,5 @@ $routes->post('/admin/product', 'AdminProductController::index');
 
 $routes->get('/admin/procurement', 'AdminProcurementController::index');
 $routes->post('/admin/procurement', 'AdminProcurementController::index');
+
+$routes->get('/order', 'OrderController::index');

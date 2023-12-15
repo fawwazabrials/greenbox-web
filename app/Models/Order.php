@@ -12,8 +12,9 @@ class Order extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = false;
-    
-    public function createOrder(int $productId, string $customerName, string $deliveryAddress, int $totalAmount) {
+
+    public function createOrder(int $productId, string $customerName, string $deliveryAddress, int $totalAmount)
+    {
         $this->insert([
             'productId' => $productId,
             'customerName' => $customerName,
@@ -22,10 +23,19 @@ class Order extends Model
         ]);
     }
 
-    public function placeOrder(int $productId, string $customerName, string $deliveryAddress, int $totalAmount) {
+    public function placeOrder(int $productId, string $customerName, string $deliveryAddress, int $totalAmount)
+    {
         $model = model(Product::class);
         $newStock = $model->getProductById($productId)['stock'] - $totalAmount;
         $model->changeStock($productId, $newStock);
         $this->createOrder($productId, $customerName, $deliveryAddress, $totalAmount);
+    }
+
+    public function getAllOrder()
+    {
+        $builder = $this->db->table('order');
+        $builder->join('product', 'product.id = order.productId');
+        $query = $builder->get();
+        return $query->getResult();
     }
 }

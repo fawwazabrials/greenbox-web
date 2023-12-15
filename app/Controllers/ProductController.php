@@ -14,18 +14,18 @@ class ProductController extends BaseController
     {
         $model = model(Product::class);
         $data = [
-          'products' => $model->paginate(6),
-          'pager' => $model->pager,
+            'products' => $model->paginate(6),
+            'pager' => $model->pager,
         ];
         return view('product_list', $data);
     }
-    
+
     public function show(int $id = null)
     {
         $model = model(Product::class);
         $product = $model->getProductById($id);
 
-        if (! $this->request->is('post')) {
+        if (!$this->request->is('post')) {
             return view('product_item', [
                 'product' => $product
             ]);
@@ -49,13 +49,13 @@ class ProductController extends BaseController
                 'less_than_equal_to' => 'Pembelian tidak boleh melebihi stok!'
             ],
         ];
- 
-        if (! $this->validate($rules, $errors)) {
+
+        if (!$this->validate($rules, $errors)) {
             return view('product_item', [
                 'product' => $product,
             ]);
         }
-        
+
         $validData = $this->validator->getValidated();
         model(Order::class)->placeOrder($id, $validData['customerName'], $validData['deliveryAddress'], $validData['totalAmount']);
 
