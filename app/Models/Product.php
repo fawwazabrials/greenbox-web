@@ -20,4 +20,8 @@ class Product extends Model
     public function getProductById(int $id) {
         return $this->find($id);
     }
+
+    public function changeStock(int $id, int $newStock) {
+        return $this->update($id, ['stock' => $newStock]);
+    }
 }

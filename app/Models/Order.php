@@ -13,11 +13,19 @@ class Order extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = false;
     
-    public function createOrder(string $customerName, string $deliveryAddress, int $totalAmount) {
+    public function createOrder(int $productId, string $customerName, string $deliveryAddress, int $totalAmount) {
         $this->insert([
+            'productId' => $productId,
             'customerName' => $customerName,
             'deliveryAddress' => $deliveryAddress,
             'totalAmount' => $totalAmount,
         ]);
+    }
+
+    public function placeOrder(int $productId, string $customerName, string $deliveryAddress, int $totalAmount) {
+        $model = model(Product::class);
+        $newStock = $model->getProductById($productId)['stock'] - $totalAmount;
+        $model->changeStock($productId, $newStock);
+        $this->createOrder($productId, $customerName, $deliveryAddress, $totalAmount);
     }
 }

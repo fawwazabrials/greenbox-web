@@ -16,6 +16,11 @@ class CreateOrderTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'productId' => [
+                'type'           => 'INT',
+                'constraint'     => 5,
+                'unsigned'       => true,
+            ],
             'customerName' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
@@ -38,6 +43,7 @@ class CreateOrderTable extends Migration
         ]);
 
         $this->forge->addKey('id', true);
+        $this->forge->addForeignKey('productId', 'product', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('order');
     }
 

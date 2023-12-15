@@ -7,5 +7,4 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'ProductController::index');
 $routes->get('/product/(:num)', 'ProductController::show/$1');
-
-$routes->post('/order', 'OrderController::submit_order');
+$routes->post('/product/(:num)', 'ProductController::show/$1');

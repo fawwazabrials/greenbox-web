@@ -12,14 +12,15 @@ class OrderController extends BaseController
         //
     }
 
-    public function submit_order() {        
-        $customerName = $this->request->getPost('customerName');
-        $deliveryAddress = $this->request->getPost('deliveryAddress');
-        $totalAmount = $this->request->getPost('totalAmount');
+    // public function submit_order() {        
+    //     $productId = $this->request->getPost('productId');
+    //     $customerName = $this->request->getPost('customerName');
+    //     $deliveryAddress = $this->request->getPost('deliveryAddress');
+    //     $totalAmount = $this->request->getPost('totalAmount');
         
-        $model = model(Order::class);
-        $model->createOrder($customerName, $deliveryAddress, $totalAmount);
+    //     $model = model(Order::class);
+    //     $model->placeOrder($productId, $customerName, $deliveryAddress, $totalAmount);
 
-        return redirect('/');
-    }
+    //     return redirect('/');
+    // }
 }
