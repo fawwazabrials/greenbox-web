@@ -15,7 +15,8 @@
         <?php if ($session->get('user_token') == 1): ?>
             <div class="flex-none">
                 <ul class="menu menu-horizontal px-1">
-                    <li><a>Product</a></li>
+                    <li><a href="/admin/product">Product</a></li>
+                    <li><a href="/admin/procurement">Procurement</a></li>
                     <li><a>Orders</a></li>
                     <li><a>Report</a></li>
                 </ul>

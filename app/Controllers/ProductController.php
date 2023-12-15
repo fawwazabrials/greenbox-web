@@ -13,8 +13,6 @@ class ProductController extends BaseController
     public function index()
     {
         $model = model(Product::class);
-        $productData = $model->getAllProduct();
-
         $data = [
           'products' => $model->paginate(6),
           'pager' => $model->pager,
