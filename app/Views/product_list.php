@@ -27,38 +27,14 @@
                                 </div>
                             </div>
                             
-                            <a class="btn bg-info hover:bg-info/50 border-0" href="/product/<?= $product['id'] ?>">Beli</a>
-                            <!-- <dialog id="modal_deskripsi_<?= esc($product['id'])?>" class="modal">
-                            <div class="modal-box">
-                                <div>
-                                    <h3 class="card-title"><?= esc($product['name']) ?></h3>
-                                    <p class="text-sm text-slate-400"><?= esc($product['variant']) ?></p>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold mt-4">Deskripsi</h4>
-                                    <p><?= str_replace('\n', '<br/>', esc($product['description'])) ?></p>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold mt-4">Kandungan dan Nutrisi</h4>
-                                    <p><?= str_replace('\n', '<br/>', esc($product['description_kandungan']))  ?></p>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold mt-4">Petunjuk Penyimpanan</h4>
-                                    <p><?= str_replace('\n', '<br/>', esc($product['description_petunjuk_penyimpanan'])) ?></p>
-                                </div>
-                            </div>
-                            <form method="dialog" class="modal-backdrop">
-                                <button>close</button>
-                            </form>
-                            </dialog> -->
+                            <a class="btn btn-primary btn-sm border-0 mt-4 px-8" href="/product/<?= $product['id'] ?>">Beli</a>
                         </div>
                     </div>
                 </div>
             <?php endforeach ?>
-            
-            
-            
-
+        </div>
+        <div class="mt-8">
+            <?= $pager->links() ?>
         </div>
     </div>
 <?= $this->endSection() ?>
