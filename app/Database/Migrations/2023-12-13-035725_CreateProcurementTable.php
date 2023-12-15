@@ -29,6 +29,9 @@ class CreateProcurementTable extends Migration
             'procuredQuantity' => [
                 'type' => 'INT'
             ],
+            'monitorUrl' => [
+                'type' => 'TEXT'
+            ],
             'isCompleted' => [
                 'type' => 'BOOLEAN',
                 'default' => false,
