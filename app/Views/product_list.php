@@ -27,8 +27,8 @@
                                 </div>
                             </div>
                             
-                            <button class="btn btn-xs bg-info hover:bg-info/50 border-0" onclick="modal_deskripsi_<?= esc($product['id'])?>.showModal()">Baca deskripsi..</button>
-                            <dialog id="modal_deskripsi_<?= esc($product['id'])?>" class="modal">
+                            <a class="btn bg-info hover:bg-info/50 border-0" href="/product/<?= $product['id'] ?>">Beli</a>
+                            <!-- <dialog id="modal_deskripsi_<?= esc($product['id'])?>" class="modal">
                             <div class="modal-box">
                                 <div>
                                     <h3 class="card-title"><?= esc($product['name']) ?></h3>
@@ -50,7 +50,7 @@
                             <form method="dialog" class="modal-backdrop">
                                 <button>close</button>
                             </form>
-                            </dialog>
+                            </dialog> -->
                         </div>
                     </div>
                 </div>

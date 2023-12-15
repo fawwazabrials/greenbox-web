@@ -32,7 +32,8 @@ class CreateOrderTable extends Migration
             ],
             'deliveryStatus' => [
                 'type' => 'ENUM',
-                'constraint' => ['COMPLETED', 'ONGOING']
+                'constraint' => ['COMPLETED', 'ONGOING'],
+                'default' => 'ONGOING',
             ],
         ]);
 
