@@ -36,8 +36,8 @@ class User extends Model
         return $this->where('email', $email)->first();
     }
 
-    public function validatePassword(string $username, string $password) {
-        $user = $this->getUserByUsername($username);
+    public function validatePassword(string $email, string $password) {
+        $user = $this->getUserByEmail($email);
         if ($user == null) return null;
         return $user['hashedPassword'] == md5($password);
     }
