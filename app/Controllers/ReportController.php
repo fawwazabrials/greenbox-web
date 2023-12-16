@@ -8,6 +8,9 @@ use App\Models\Product;
 
 class ReportController extends BaseController
 {
+    protected $product;
+    protected $order;
+
     function __construct()
     {
         $this->product = new Product();
