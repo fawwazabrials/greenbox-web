@@ -36,7 +36,7 @@
                             </div>
                         </div>
 
-                        <a class="btn btn-primary btn-sm border-0 mt-6 px-8" href="/admin/order/<?= $value->id ?>">Details</a>
+                        <a class="btn btn-primary btn-sm border-0 mt-6 px-8" href="/admin/order/<?= $value->order_id ?>">Details</a>
                     </div>
                 </div>
             </div>

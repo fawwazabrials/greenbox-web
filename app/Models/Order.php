@@ -34,6 +34,7 @@ class Order extends Model
     public function getAllOrder()
     {
         $builder = $this->db->table('order');
+        $builder->select('order.id AS order_id, order.productId, order.customerName, order.orderDate, order.deliveryAddress, order.totalAmount, order.deliveryStatus, product.*');
         $builder->join('product', 'product.id = order.productId');
         $query = $builder->get();
         return $query->getResult();
