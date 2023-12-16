@@ -20,7 +20,7 @@
                     <li><a href="/admin/product">Product</a></li>
                     <li><a href="/admin/procurement">Procurement</a></li>
                     <li><a href="/admin/order">Orders</a></li>
-                    <li><a>Report</a></li>
+                    <li><a href="/admin/report">Report</a></li>
                 </ul>
                 <a class="btn btn-sm" href="/logout">Logout</a>
             </div>

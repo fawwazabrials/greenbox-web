@@ -2561,3 +2561,34 @@ input.tab:checked + .tab-content,
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+.containerReport {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  place-items: left;
+  background-color: #ffffff;
+}
+
+.containerReport-details {
+  border-radius: 15px;
+  width: 300px;
+  height: 150px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #00ca92;
+}
+
+.containerReport-graph {
+  border-radius: 15px;
+  width: 900px;
+  height: 450px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #a36b6b;
+}

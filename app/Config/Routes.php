@@ -21,3 +21,5 @@ $routes->post('/admin/procurement', 'AdminProcurementController::index');
 
 $routes->get('/admin/order', 'OrderController::index');
 $routes->get('/admin/order/(:num)', 'OrderController::show/$1');
+
+$routes->get('/admin/report', 'ReportController::index');

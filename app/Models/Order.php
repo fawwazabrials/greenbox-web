@@ -48,4 +48,15 @@ class Order extends Model
         $query = $builder->get();
         return $query->getResult();
     }
+
+    public function getReport()
+    {
+        $builder = $this->db->table('order');
+        $builder->select('productId, name, price, COUNT("productId") as countOrder, SUM(`totalAmount`) as amount');
+        $builder->join('product', 'order.productId = product.id');
+        $builder->groupBy('productId');
+        $builder->orderBy('countOrder', 'DESC');
+        $query = $builder->get();
+        return $query->getResult();
+    }
 }
