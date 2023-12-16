@@ -55,6 +55,7 @@
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium" style="font-size: 13pt;">Nama</th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium" style="font-size: 13pt;">Harga</th>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium" style="font-size: 13pt;">Jumlah Pemesanan</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium" style="font-size: 13pt;">Jumlah Penjualan</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -64,6 +65,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm" style="font-size: 12pt;"><?= $value->name ?></td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm" style="font-size: 12pt;"><?= "Rp" . number_format(($value->price), 0, ',', '.') ?></td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm" style="font-size: 12pt;"><?= $value->countOrder ?></td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm" style="font-size: 12pt;"><?= $value->amount ?></td>
                                 </tr>
                             <?php endforeach ?>
                         </tbody>
