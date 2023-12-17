@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Product;
+use Exception;
 
 class AdminProductController extends BaseController
 {
@@ -75,14 +76,38 @@ class AdminProductController extends BaseController
 
         // dd(getenv('TANAMANKU_API_URL').'TanamankuAPI/requests/'. getenv('TANAMANKU_API_SECRET_EMAIL').'/'. getenv('TANAMANKU_API_SECRET_PASSWORD'));
         $client = \Config\Services::curlrequest();
-        $response = $client->request('POST', 
+
+        try {
+            $response_tanaman = $client->request('GET',
+                getenv('TANAMANKU_API_URL').'TanamankuAPI/plants/'. getenv('TANAMANKU_API_SECRET_EMAIL').'/'. getenv('TANAMANKU_API_SECRET_PASSWORD')
+            )->getJSON();
+            $response_tanaman = json_decode($response_tanaman);
+            $response_tanaman = json_decode($response_tanaman, true);
+        } catch (Exception $e) {
+            session()->setFlashdata('error', 'Tidak bisa connect ke server Tanamanku. Pastikan Tanamanku sudah jalan!');
+            return redirect('admin/product');
+        }
+
+        $tanamanId = null;
+        foreach ($response_tanaman['plants'] as $plant) {
+            if ($plant['namaTanaman'] == $product['name']) {
+                $tanamanId = $product['id'];
+            }
+        }
+
+        if (is_null($tanamanId)) {
+            session()->setFlashdata('error', 'Tanaman ' . $product['name'] . ' tidak ada di Tanamanku.');
+            return redirect('admin/product');
+        }
+
+        $response_request = $client->request('POST', 
             getenv('TANAMANKU_API_URL').'TanamankuAPI/requests/'. getenv('TANAMANKU_API_SECRET_EMAIL').'/'. getenv('TANAMANKU_API_SECRET_PASSWORD'), 
             ['json' => [
                 'nama_requester' => 'Greenbox',
                 'quantity' => $quantity,
-                'tanamanId' => 1,
+                'tanamanId' => $tanamanId,
             ]]);
 
-        return redirect('admin/product')->with('success', 'Pesanan berhasil dipesan!');
+        return redirect('admin/product')->with('success', 'Produk '.$product['name'].' sudah di-request sebanyak '.$quantity.' tanaman. Mohon ditunggu!');
     }
 }
