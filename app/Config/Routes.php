@@ -14,7 +14,9 @@ $routes->post('/login', 'AuthController::index');
 $routes->get('/logout', 'AuthController::logout');
 
 $routes->get('/admin/product', 'AdminProductController::index');
-$routes->post('/admin/product', 'AdminProductController::index');
+$routes->get('/admin/product/(:num)', 'AdminProductController::show/$1');
+$routes->post('/admin/product/(:num)', 'AdminProductController::editProductDetail/$1');
+$routes->post('/admin/product/(:num)/request', 'AdminProductController::requestPlant/$1');
 
 $routes->get('/admin/procurement', 'AdminProcurementController::index');
 $routes->post('/admin/procurement', 'AdminProcurementController::index');

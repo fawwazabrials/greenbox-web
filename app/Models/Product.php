@@ -24,4 +24,14 @@ class Product extends Model
     public function changeStock(int $id, int $newStock) {
         return $this->update($id, ['stock' => $newStock]);
     }
+
+    public function changeDetail(int $id, int $price, string $description, string $description_kandungan, string $description_petunjuk_penyimpanan) {
+        return $this->update($id, [
+            'price' => $price,
+            'description' => $description,
+            'description_kandungan' => $description_kandungan,
+            'description_petunjuk_penyimpanan' => $description_petunjuk_penyimpanan,
+        ]);
+
+    }
 }

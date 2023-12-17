@@ -21,11 +21,12 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col">
+                        <div class="flex flex-col justify-between">
+                            
                             <?php if ($product['stock'] <= 25) : ?>
                                 <span class="text-xs text-error">Stok sudah menipis! <br />Segeralah pesan baru</span>
                             <?php endif; ?>
-                            <a class="btn btn-primary btn-sm border-0 mt-1 px-8" href="">Pesan</a>
+                            <a class="btn btn-primary btn-sm border-0 mt-1 px-8" href="/admin/product/<?= esc($product['id'])?>">Ubah</a>
                         </div>
                     </div>
                 </div>

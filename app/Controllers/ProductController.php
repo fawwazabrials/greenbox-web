@@ -61,4 +61,8 @@ class ProductController extends BaseController
 
         return redirect('/')->with('success', 'Order berhasil dipesan!');
     }
+
+    // public function editProductDetail(int $id = null) {}
+
+
 }
