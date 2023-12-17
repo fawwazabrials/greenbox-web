@@ -2290,6 +2290,10 @@ input.tab:checked + .tab-content,
   flex-direction: column;
 }
 
+.content-center {
+  align-content: center;
+}
+
 .items-center {
   align-items: center;
 }
