@@ -60,4 +60,14 @@ class Order extends Model
         $query = $builder->get();
         return $query->getResult();
     }
+
+    public function getAllOrderWithoutDetail()
+    {
+        return $this->findAll();
+    }
+
+    public function getOrderByIdWithoutDetail(int $id)
+    {
+        return $this->find($id);
+    }
 }

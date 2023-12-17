@@ -23,3 +23,8 @@ $routes->get('/admin/order', 'OrderController::index');
 $routes->get('/admin/order/(:num)', 'OrderController::show/$1');
 
 $routes->get('/admin/report', 'ReportController::index');
+
+// API Routes
+$routes->get('/api/order', 'OrderAPIController::index');
+$routes->get('/api/order/(:num)', 'OrderAPIController::show/$1');
+$routes->get('/api/order/report', 'OrderAPIController::showReport');
