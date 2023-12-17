@@ -28,3 +28,6 @@ $routes->get('/admin/report', 'ReportController::index');
 $routes->get('/api/order', 'OrderAPIController::index');
 $routes->get('/api/order/(:num)', 'OrderAPIController::show/$1');
 $routes->get('/api/order/report', 'OrderAPIController::showReport');
+
+$routes->get('/api/product', 'ProductAPIController::index');
+$routes->get('/api/product/(:num)', 'ProductAPIController::show/$1');
