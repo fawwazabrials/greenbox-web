@@ -18,9 +18,6 @@ $routes->get('/admin/product/(:num)', 'AdminProductController::show/$1');
 $routes->post('/admin/product/(:num)', 'AdminProductController::editProductDetail/$1');
 $routes->post('/admin/product/(:num)/request', 'AdminProductController::requestPlant/$1');
 
-$routes->get('/admin/procurement', 'AdminProcurementController::index');
-$routes->post('/admin/procurement', 'AdminProcurementController::index');
-
 $routes->get('/admin/order', 'OrderController::index');
 $routes->get('/admin/order/(:num)', 'OrderController::show/$1');
 
@@ -33,3 +30,4 @@ $routes->get('/api/order/report', 'OrderAPIController::showReport');
 
 $routes->get('/api/product', 'ProductAPIController::index');
 $routes->get('/api/product/(:num)', 'ProductAPIController::show/$1');
+$routes->put('/api/product/add-stock', 'ProductAPIController::addStock');
