@@ -2,16 +2,6 @@
 
 <?= $this->section('content') ?>
 <div>
-    <?php if (session()->getFlashdata('error')) : ?>
-        <div class="bg-error text-white p-4 rounded-lg mb-3" role="alert">
-          <?= session()->getFlashdata('error') ?>
-        </div>
-    <?php elseif (session()->getFlashdata('success')) : ?>
-        <div class="bg-success text-black p-4 rounded-lg mb-3" role="alert">
-          <?= session()->getFlashdata('success') ?>
-        </div>
-    <?php endif; ?>
-
     <h1 class="text-3xl font-bold">Product Management</h1>
 
     <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">

@@ -30,7 +30,17 @@
         <?php endif; ?>
     </nav>
 
+    
     <div class="px-8 lg:px-48 my-4">
+        <?php if (session()->getFlashdata('error')) : ?>
+            <div class="bg-error text-white p-4 rounded-lg my-4" role="alert">
+              <?= session()->getFlashdata('error') ?>
+            </div>
+        <?php elseif (session()->getFlashdata('success')) : ?>
+            <div class="bg-success text-black p-4 rounded-lg my-4" role="alert">
+              <?= session()->getFlashdata('success') ?>
+            </div>
+        <?php endif; ?>
         <?= $this->renderSection('content') ?>
     </div>
 </body>
