@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= base_url() ?>/assets/css/styles.css" rel="stylesheet">
-    <title>GreenBox</title>
+    <title>Greenbox</title>
 </head>
 
 <body class="flex flex-col min-h-screen">

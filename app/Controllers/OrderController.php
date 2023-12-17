@@ -8,6 +8,9 @@ use App\Models\Product;
 
 class OrderController extends BaseController
 {
+    protected $product;
+    protected $order;
+
     function __construct()
     {
         $this->product = new Product();
