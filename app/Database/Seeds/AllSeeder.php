@@ -10,5 +10,6 @@ class AllSeeder extends Seeder
     {
         $this->call('UsersSeeder');
         $this->call('ProductSeeder');
+        $this->call('OrderSeeder');
     }
 }
