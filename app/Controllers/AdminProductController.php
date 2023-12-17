@@ -84,8 +84,7 @@ class AdminProductController extends BaseController
             $response_tanaman = json_decode($response_tanaman);
             $response_tanaman = json_decode($response_tanaman, true);
         } catch (Exception $e) {
-            session()->setFlashdata('error', 'Tidak bisa connect ke server Tanamanku. Pastikan Tanamanku sudah jalan!');
-            return redirect('admin/product');
+            return redirect('admin/product')->with('error', 'Tidak bisa connect ke server Tanamanku. Pastikan Tanamanku sudah jalan!');
         }
 
         $tanamanId = null;

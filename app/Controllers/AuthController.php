@@ -40,13 +40,13 @@ class AuthController extends BaseController
         $userModel = model(User::class);
         if ($userModel->validatePassword($email, $password)) {
             session()->set('user_token', 1);
-            return redirect('/');
+            return redirect('/')->with('success', 'Login berhasil!');
         }
-        return redirect('login');
+        return redirect('login')->with('error', 'Login gagal!');
     }
 
     public function logout() {
         session()->destroy();
-        return redirect('/');
+        return redirect('/')->with('success', 'Logout berhasil!');
     }
 }
