@@ -1,8 +1,29 @@
+ifeq ($(OS),Windows_NT)
+
+ifneq ($(strip $(filter %sh,$(basename $(realpath $(SHELL))))),)
+POSIXSHELL := 1
+else
+POSIXSHELL :=
+endif
+else
+# not on windows:
+POSIXSHELL := 1
+endif
+ifneq ($(POSIXSHELL),1)
+CMDSEP := ;
+PSEP := /
+CPF := cp -f
+else
+CMDSEP := &
+PSEP := \\
+CPF := copy /y
+endif
+
 setup:
+	@make composer-setup
 	@make copy-env
 	@make build
 	@make run
-	@make composer-setup
 	@make database-migrate
 	@echo Setup successful, website running on localhost:8080
 build:
@@ -12,9 +33,9 @@ stop:
 run:
 	docker-compose up -d
 copy-env:
-	cp .env.example .env
+	$(CPF) .env.example .env
 composer-setup:
-	docker exec greenbox-web-app-1 bash -c "composer install"
+	composer install
 database-setup:
 	echo Starting database creation
 	docker exec -i greenbox-web-database-1 bash -c "sleep 10"

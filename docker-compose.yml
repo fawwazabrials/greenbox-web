@@ -34,10 +34,9 @@ services:
         environment:
             MYSQL_DATABASE: greenbox_db
             MYSQL_ALLOW_EMPTY_PASSWORD: true
-            # MYSQL_USER: secret
-            # MYSQL_PASSWORD: secret
+            MYSQL_TCP_PORT: 3307
         ports:
-            - "3306:3306"
+            - "3307:3307"
         networks:
             - gf-network
 
