@@ -7,9 +7,12 @@
     </div>
     <?= form_open('admin/product/' . esc($product['id']) . '/request') ?>
         <label class="form-control">
-            <div class="flex flex-col my-2">
-                <span class="label-text font-semibold">Jumlah Pesanan</span>
-                <span class="label-text text-red-500 text-sm"> <?= validation_show_error('quantity') ?> </span>
+            <div class="flex flex-col">
+                <div class="flex flex-col my-2">
+                    <span class="label-text font-semibold">Jumlah Pesanan</span>
+                    <span class="label-text text-red-500 text-sm"> <?= validation_show_error('quantity') ?> </span>
+                </div>
+                <p>Kualitas saat ini: <?= esc($quality) ?></p>
             </div>
             <div class="flex flex-row gap-4">
                 <input id="quantity" type="number" min=20 name="quantity" class="textarea textarea-bordered h-12 w-full" />
