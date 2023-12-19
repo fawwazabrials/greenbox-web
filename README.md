@@ -2,7 +2,7 @@
 
 ## Description
 
-Greenbox adalah sebuah aplikasi penjualan produk-produk sayuran. Aplikasi ini akan berinteraksi dengan Single Service API yang sebelumnya sudah dibuat ([Github Repo](https://github.com/fawwazabrials/ssbackend-labpro)).
+Greenbox adalah sebuah aplikasi penjualan produk-produk sayuran. Aplikasi ini akan berinteraksi dengan Tanamanku yang sebelumnya sudah dibuat ([Github Repo](https://github.com/fawwazabrials/greenbox-web)).
 
 ## Daftar Isi
 
