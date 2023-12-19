@@ -19,6 +19,10 @@ class ReportController extends BaseController
 
     public function index()
     {
+        if (session()->get('user_token') != 1) {
+            return redirect('/')->with('error', 'Login sebagai karyawan terlebih dahulu untuk mengakses page tersebut!');
+        }
+        
         $data['orders'] = $this->order->getReport();
 
         return view('report', $data);

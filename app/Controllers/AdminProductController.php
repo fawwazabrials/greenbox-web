@@ -11,6 +11,9 @@ class AdminProductController extends BaseController
     protected $helpers = ['form'];
 
     public function index() {
+        if (session()->get('user_token') != 1) {
+            return redirect('/')->with('error', 'Login sebagai karyawan terlebih dahulu untuk mengakses page tersebut!');
+        }
         
         $model = model(Product::class);
         $data = [
@@ -22,7 +25,10 @@ class AdminProductController extends BaseController
     }
     
     public function show(int $id = null) {
-        // dd("dshkasdhadsh");
+        if (session()->get('user_token') != 1) {
+            return redirect('/')->with('error', 'Login sebagai karyawan terlebih dahulu untuk mengakses page tersebut!');
+        }
+
         $model = model(Product::class);
         $product = $model->getProductById($id);
 
@@ -65,6 +71,10 @@ class AdminProductController extends BaseController
     }
 
     public function editProductDetail(int $id = null) {
+        if (session()->get('user_token') != 1) {
+            return redirect('/')->with('error', 'Login sebagai karyawan terlebih dahulu untuk mengakses page tersebut!');
+        }
+
         $model = model(Product::class);
         $product = $model->getProductById($id);
 
@@ -102,6 +112,10 @@ class AdminProductController extends BaseController
     }
 
     public function requestPlant(int $id = null) {
+        if (session()->get('user_token') != 1) {
+            return redirect('/')->with('error', 'Login sebagai karyawan terlebih dahulu untuk mengakses page tersebut!');
+        }
+        
         $model = model(Product::class);
         $product = $model->getProductById($id);
 

@@ -19,6 +19,10 @@ class OrderController extends BaseController
 
     public function index()
     {
+        if (session()->get('user_token') != 1) {
+            return redirect('/')->with('error', 'Login sebagai karyawan terlebih dahulu untuk mengakses page tersebut!');
+        }
+
         $data['orders'] = $this->order->getAllOrder();
 
         return view('order_list', $data);
@@ -26,6 +30,10 @@ class OrderController extends BaseController
 
     public function show(int $id = null)
     {
+        if (session()->get('user_token') != 1) {
+            return redirect('/')->with('error', 'Login sebagai karyawan terlebih dahulu untuk mengakses page tersebut!');
+        }
+        
         $data['orders'] = $this->order->getOrderById($id);
 
         return view('order_item', $data);
